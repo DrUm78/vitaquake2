@@ -202,22 +202,22 @@ static struct retro_input_descriptor input_desc[] = {
  * to *something*, otherwise the keys will be
  * ignored (great design there...) */
 static const input_bind_t input_binds_pad[] = {
-	[RETRO_DEVICE_ID_JOYPAD_B]      = { "AUX4",       K_AUX4,       "" }, /* Menu Cancel */
-	[RETRO_DEVICE_ID_JOYPAD_Y]      = { "AUX2",       K_AUX2,       "weapnext" },
+	[RETRO_DEVICE_ID_JOYPAD_B]      = { "AUX4",       K_AUX4,       "+movedown" }, /* Menu Cancel */
+	[RETRO_DEVICE_ID_JOYPAD_Y]      = { "AUX2",       K_AUX2,       "+strafe" },
 	[RETRO_DEVICE_ID_JOYPAD_SELECT] = { "SELECT",     K_ENTER,      "help" },
 	[RETRO_DEVICE_ID_JOYPAD_START]  = { "START",      K_ESCAPE,     "" }, /* Menu Show */
-	[RETRO_DEVICE_ID_JOYPAD_UP]     = { "UPARROW",    K_UPARROW,    "invprev" },
-	[RETRO_DEVICE_ID_JOYPAD_DOWN]   = { "DOWNARROW",  K_DOWNARROW,  "invnext" },
-	[RETRO_DEVICE_ID_JOYPAD_LEFT]   = { "LEFTARROW",  K_LEFTARROW,  "inven" },
-	[RETRO_DEVICE_ID_JOYPAD_RIGHT]  = { "RIGHTARROW", K_RIGHTARROW, "invuse" },
-	[RETRO_DEVICE_ID_JOYPAD_A]      = { "AUX1",       K_AUX1,       "" }, /* Menu Select */
-	[RETRO_DEVICE_ID_JOYPAD_X]      = { 0 },
-	[RETRO_DEVICE_ID_JOYPAD_L]      = { "AUX3",       K_AUX3,       "+speed" },
-	[RETRO_DEVICE_ID_JOYPAD_R]      = { "AUX5",       K_AUX5,       "+movedown" },
-	[RETRO_DEVICE_ID_JOYPAD_L2]     = { "AUX6",       K_AUX6,       "+moveup" },
-	[RETRO_DEVICE_ID_JOYPAD_R2]     = { "AUX7",       K_AUX7,       "+attack" },
+	[RETRO_DEVICE_ID_JOYPAD_UP]     = { "UPARROW",    K_UPARROW,    "+forward" },
+	[RETRO_DEVICE_ID_JOYPAD_DOWN]   = { "DOWNARROW",  K_DOWNARROW,  "+back" },
+	[RETRO_DEVICE_ID_JOYPAD_LEFT]   = { "LEFTARROW",  K_LEFTARROW,  "+left" },
+	[RETRO_DEVICE_ID_JOYPAD_RIGHT]  = { "RIGHTARROW", K_RIGHTARROW, "+right" },
+	[RETRO_DEVICE_ID_JOYPAD_A]      = { "AUX1",       K_AUX1,       "+moveup" }, /* Menu Select */
+	[RETRO_DEVICE_ID_JOYPAD_X]      = { "AUX8",       K_AUX8,       "+attack" },
+	[RETRO_DEVICE_ID_JOYPAD_L]      = { "AUX3",       K_AUX3,       "weapnext" },
+	[RETRO_DEVICE_ID_JOYPAD_R]      = { "AUX5",       K_AUX5,       "+klook" },
+	[RETRO_DEVICE_ID_JOYPAD_L2]     = { "AUX6",       K_AUX6,       "invnext" },
+	[RETRO_DEVICE_ID_JOYPAD_R2]     = { "AUX7",       K_AUX7,       "invuse" },
 	[RETRO_DEVICE_ID_JOYPAD_L3]     = { 0 },
-	[RETRO_DEVICE_ID_JOYPAD_R3]     = { "AUX8",       K_AUX8,       "invdrop" },
+	[RETRO_DEVICE_ID_JOYPAD_R3]     = { 0 },
 };
 #define INPUT_BINDS_PAD_LEN (sizeof(input_binds_pad) / sizeof(input_binds_pad[0]))
 
@@ -1102,6 +1102,9 @@ void Sys_SendKeyEvents (void)
       /* Use Inventory Item */
       SET_BOUND_KEY_PAD(ret, RETRO_DEVICE_ID_JOYPAD_RIGHT);
 
+      /* DrUm78: that key was not bound, intended? */
+      SET_BOUND_KEY_PAD(ret, RETRO_DEVICE_ID_JOYPAD_X);
+
       /* Next Weapon */
       SET_BOUND_KEY_PAD(ret, RETRO_DEVICE_ID_JOYPAD_Y);
 
@@ -1446,8 +1449,8 @@ static int invert_y_axis = 1;
  *   with images and aliases spinning out of
  *   control...) */
 static const unsigned supported_framerates[] = {
-   30,
-   50,
+   30
+   /*50,
    60,
    72,
    75,
@@ -1464,7 +1467,7 @@ static const unsigned supported_framerates[] = {
    240,
    244,
    300,
-   360
+   360*/
 };
 #define NUM_SUPPORTED_FRAMERATES (sizeof(supported_framerates) / sizeof(supported_framerates[0]))
 

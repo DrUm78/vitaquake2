@@ -68,7 +68,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       NULL,
       {
          { "320x240",    NULL },
-         { "400x240",    NULL },
+         /*{ "400x240",    NULL },
          { "480x272",    NULL },
          { "512x384",    NULL },
          { "640x368",    NULL },
@@ -98,7 +98,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "5120x2880",  "5120x2880 (OpenGL Only)" },
          { "7680x4320",  "7680x4320 (OpenGL Only)" },
          { "15360x8640", "15360x8640 (OpenGL Only)" },
-#endif
+#endif*/
          { NULL, NULL },
       },
 #if defined(DINGUX)
@@ -106,7 +106,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
 #elif defined(_3DS)
       "400x240"
 #else
-      "960x544"
+      "320x240"
 #endif
    },
    {
@@ -117,9 +117,9 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       NULL,
       NULL,
       {
-         { "auto", "Auto" },
+         //{ "auto", "Auto" },
          { "30",   "30 fps" },
-         { "50",   "50 fps" },
+         /*{ "50",   "50 fps" },
          { "60",   "60 fps" },
          { "72",   "72 fps" },
          { "75",   "75 fps" },
@@ -136,13 +136,13 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "240",  "240 fps" },
          { "244",  "244 fps" },
          { "300",  "300 fps" },
-         { "360",  "360 fps" },
+         { "360",  "360 fps" },*/
          { NULL, NULL },
       },
 #if defined(DINGUX) || defined(_3DS)
       "30"
 #else
-      "auto"
+      "30"
 #endif
    },
    {
@@ -196,7 +196,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "1.00", NULL },
          { NULL, NULL },
       },
-      "0.50"
+      "0.66"
    },
 #ifdef HAVE_OPENGL
    {
@@ -494,7 +494,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled",  NULL },
          { NULL, NULL },
       },
-      "disabled"
+      "enabled"
    },
    {
       "vitaquakeii_aimfix",
@@ -524,7 +524,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       },
       "enabled"
    },
-   {
+   /*{
       "vitaquakeii_mouse_sensitivity",
       "Camera Sensitivity",
       NULL,
@@ -802,7 +802,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { NULL, NULL },
       },
       NULL
-   },
+   },*/
    { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL },
 };
 

@@ -65,8 +65,8 @@ ifneq (,$(findstring unix,$(platform)))
 	EXT ?= so
    TARGET := $(TARGET_NAME)_libretro.$(EXT)
    fpic := -fPIC
-   HAVE_OPENGL = 1
-	GL_LIB := -lGL
+   #HAVE_OPENGL = 1
+   #GL_LIB := -lGL
    SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
 else ifeq ($(platform), linux-portable)
    TARGET := $(TARGET_NAME)_libretro.$(EXT)
