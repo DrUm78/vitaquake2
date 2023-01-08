@@ -1169,7 +1169,7 @@ static void core_audio_mixer_mix_mp3(float* buffer, size_t num_frames,
    if (voice->types.mp3.position == voice->types.mp3.samples)
    {
 again:
-      temp_samples = (unsigned)drmp3_read_f32(
+      temp_samples = (unsigned)drmp3_read_pcm_frames_f32(
             &voice->types.mp3.stream,
             CORE_AUDIO_MIXER_TEMP_BUFFER / 2, temp_buffer) * 2;
 
@@ -1180,7 +1180,7 @@ again:
             if (voice->stop_cb)
                voice->stop_cb(voice->sound, CORE_AUDIO_MIXER_SOUND_REPEATED);
 
-            drmp3_seek_to_frame(&voice->types.mp3.stream,0);
+            drmp3_seek_to_pcm_frame(&voice->types.mp3.stream,0);
             goto again;
          }
 

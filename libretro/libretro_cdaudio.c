@@ -81,14 +81,14 @@ void CDAudio_Play(int track, qboolean looping)
       goto error;
 
    /* Get track file path
-    * > Try XX.ogg */
-   snprintf(file_name, sizeof(file_name), "%02i.ogg", track);
+    * > Try XX.mp3 */
+   snprintf(file_name, sizeof(file_name), "%02i.mp3", track);
    fill_pathname_join(file_path, g_music_dir, file_name, sizeof(file_path));
 
    if (!path_is_valid(file_path))
    {
-      /* Try trackXX.ogg */
-      snprintf(file_name, sizeof(file_name), "track%02i.ogg", track);
+      /* Try trackXX.mp3 */
+      snprintf(file_name, sizeof(file_name), "track%02i.mp3", track);
       fill_pathname_join(file_path, g_music_dir, file_name, sizeof(file_path));
 
       if (!path_is_valid(file_path))
@@ -101,7 +101,7 @@ void CDAudio_Play(int track, qboolean looping)
       if (file_len < 1)
          goto error;
 
-      cdaudio_sound = core_audio_mixer_load_ogg(file_contents, file_len);
+      cdaudio_sound = core_audio_mixer_load_mp3(file_contents, file_len);
 
       if (!cdaudio_sound)
          goto error;

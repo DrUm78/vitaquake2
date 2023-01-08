@@ -113,14 +113,14 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "vitaquakeii_framerate",
       "Framerate (Restart)",
       NULL,
-      "Set internal framerate. 'Auto' will attempt to match the refresh rate of the connected display.",
+      "Set internal framerate.",
       NULL,
       NULL,
       {
          //{ "auto", "Auto" },
          { "30",   "30 fps" },
-         /*{ "50",   "50 fps" },
-         { "60",   "60 fps" },
+         { "50",   "50 fps" },
+         /*{ "60",   "60 fps" },
          { "72",   "72 fps" },
          { "75",   "75 fps" },
          { "90",   "90 fps" },
@@ -433,7 +433,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "vitaquakeii_cdaudio_enabled",
       "Play Music",
       NULL,
-      "Enable playback of original CD audio tracks at the expense of increased performance requirements. Music must be in OGG format, placed inside the '<PAK directory>/music' folder. Files may be named either 'XX.ogg' or 'trackXX.ogg'.",
+      "Enable playback of original CD audio tracks at the expense of increased performance requirements. Music must be in MP3 format, placed inside the '<PAK directory>/music' folder. Files may be named either 'XX.mp3' or 'trackXX.mp3'.",
       NULL,
       NULL,
       {
@@ -479,7 +479,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "130", "130%" },
          { NULL, NULL },
       },
-      "50"
+      "100"
    },
 #endif
    {
