@@ -1,16 +1,10 @@
 #!/bin/sh
 
-mkdir -p opk/cores
+mkdir -p opk/
 
-cd /opt/sdlretro
-git pull
-mkdir -p build/
-cd build/
-cmake -DCMAKE_BUILD_TYPE=Release -DMODEL=funkey ..
-make clean
-make
-/opt/FunKey-sdk/bin/arm-funkey-linux-musleabihf-strip src/sdlretro
-cp src/sdlretro ../../libretro-vitaquake2/opk
+cd /opt/picoarch
+./package
+cp picoarch README.funkey-s.md ../libretro-vitaquake2/opk
 
 cd /opt/libretro-vitaquake2
 git fetch --all
@@ -18,7 +12,7 @@ git merge upstream/libretro
 make clean
 make
 /opt/FunKey-sdk/bin/arm-funkey-linux-musleabihf-strip *.so
-cp vitaquake2_libretro.so opk/cores/
+cp vitaquake2_libretro.so opk/
 
 cp icons/quake2.png opk/
 cp LICENSE opk/
@@ -37,10 +31,9 @@ esac
 print '[Desktop Entry]
 Name=Quake II
 Comment=VitaQuake 2 v2.3 for Libretro
-Exec=sdlretro %f
+Exec=picoarch ./vitaquake2_libretro.so
 Icon=quake2
-Categories=games
-SelectorFilter=pak' > opk/quake2.funkey-s.desktop
+Categories=games' > opk/vitaquake2.funkey-s.desktop
 
 rm -f *.opk
 mksquashfs opk/ vitaquake2_v2.3_funkey-s.opk -all-root -noappend -no-exports -no-xattrs
