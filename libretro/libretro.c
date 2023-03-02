@@ -1449,10 +1449,10 @@ static int invert_y_axis = 1;
  *   with images and aliases spinning out of
  *   control...) */
 static const unsigned supported_framerates[] = {
-   30
-   /*50,
-   60,
-   72,
+   30,
+   50,
+   60
+   /*72,
    75,
    90,
    100,
