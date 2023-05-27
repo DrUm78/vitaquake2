@@ -9,6 +9,7 @@ cp picoarch README.funkey-s.md ../libretro-vitaquake2/opk
 cd /opt/libretro-vitaquake2
 git fetch --all
 git merge upstream/libretro
+git submodule update --remote --recursive
 make clean
 make
 /opt/FunKey-sdk/bin/arm-funkey-linux-musleabihf-strip *.so

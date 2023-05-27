@@ -1,0 +1,3 @@
+[submodule "libretro/dr_libs"]
+	path = libretro/dr_libs
+	url = https://github.com/mackron/dr_libs

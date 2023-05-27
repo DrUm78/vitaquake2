@@ -47,14 +47,14 @@
 
 #ifdef HAVE_DR_FLAC
 #define DR_FLAC_IMPLEMENTATION
-#include <dr/dr_flac.h>
+#include <dr_libs/dr_flac.h>
 #endif
 
 #ifdef HAVE_DR_MP3
 #define DR_MP3_IMPLEMENTATION
 #include <retro_assert.h>
 #define DRMP3_ASSERT(expression) retro_assert(expression)
-#include <dr/dr_mp3.h>
+#include <dr_libs/dr_mp3.h>
 #endif
 
 #ifdef HAVE_IBXM
