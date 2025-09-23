@@ -1,13 +1,13 @@
 #!/bin/sh
 
-mkdir -p opk/
+mkdir opk/
 git fetch --all
 git merge upstream/libretro
-git submodule update --remote --recursive
+git submodule update --init
 make clean
 make
 /opt/FunKey-sdk/bin/arm-funkey-linux-musleabihf-strip *.so
-cp vitaquake2_libretro.so icons/quake2.png LICENSE opk/
+cp vitaquake2_libretro.so icons/quake2.png opk/
 
 # https://unix.stackexchange.com/questions/219268/how-to-add-new-lines-when-using-echo
 print()
