@@ -161,6 +161,7 @@ else
 endif
    CFLAGS   += $(MINVERSION)
    CXXFLAGS += $(MINVERSION)
+   LDFLAGS  += $(MINVERSION)
 
 else ifeq ($(platform), tvos-arm64)
    EXT?=dylib
@@ -172,6 +173,10 @@ ifeq ($(IOSSDK),)
    IOSSDK := $(shell xcodebuild -version -sdk appletvos Path)
 endif
    CC = cc -arch arm64 -isysroot $(IOSSDK)
+   MINVERSION = -mappletvos-version-min=11.0
+   CFLAGS   += $(MINVERSION)
+   CXXFLAGS += $(MINVERSION)
+   LDFLAGS  += $(MINVERSION)
 
 else ifneq (,$(findstring qnx,$(platform)))
 	TARGET := $(TARGET_NAME)_libretro_qnx.so
@@ -229,6 +234,7 @@ else ifeq ($(platform), wiiu)
    AR = $(DEVKITPPC)/bin/powerpc-eabi-ar$(EXE_EXT)
    CFLAGS += -DGEKKO -DHW_RVL -DWIIU -mcpu=750 -meabi -mhard-float
    CXXFLAGS += -DGEKKO -DHW_RVL -DWIIU -mcpu=750 -meabi -mhard-float
+   CXXFLAGS += -ffunction-sections -fdata-sections -D__wiiu__ -D__wut__
    STATIC_LINKING = 1
    HAVE_OPENGL = 0
 # CTR (3DS)

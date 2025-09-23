@@ -355,7 +355,7 @@ void SV_WriteServerFile (qboolean autosave)
 {
 	RFILE	*f;
 	cvar_t	*var;
-	char	fname[MAX_OSPATH], name[128], string[128];
+	char	fname[MAX_OSPATH], name[MAX_OSPATH], string[128];
 	char	comment[32];
 	time_t	aclock;
 	struct tm	*newtime;
