@@ -5,23 +5,6 @@ LIBRETRO_DIR = $(CORE_DIR)/libretro
 JPEG8C_DIR = $(CORE_DIR)/jpeg-8c
 
 SOURCES_C := 
-# Extension-specific core handling
-ifeq ($(CORE),rogue)
-    EXTENSION_DIR := rogue
-endif
-
-ifeq ($(CORE),xatrix)
-    EXTENSION_DIR := xatrix
-endif
-
-ifeq ($(CORE),zaero)
-    EXTENSION_DIR := zaero
-endif
-
-# Include all C files from the selected extension folder, if defined
-ifneq ($(EXTENSION_DIR),)
-    SOURCES_C += $(wildcard $(CORE_DIR)/$(EXTENSION_DIR)/*.c)
-endif
 
 INCFLAGS  := \
 	-I$(CORE_DIR) \

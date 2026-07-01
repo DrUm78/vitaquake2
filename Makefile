@@ -1,24 +1,3 @@
-# Extension core selection (must be declared early)
-$(info CORE is "$(CORE)")
-
-ifeq ($(CORE),xatrix)
-	TARGET_NAME := vitaquake2-xatrix
-	EXTENSION_DATA := 1
-endif
-
-ifeq ($(CORE),rogue)
-	TARGET_NAME := vitaquake2-rogue
-	EXTENSION_DATA := 1
-endif
-
-ifeq ($(CORE),zaero)
-	TARGET_NAME := vitaquake2-zaero
-	EXTENSION_DATA := 1
-endif
-
-# Default fallback if no CORE defined
-TARGET_NAME ?= vitaquake2
-
 STATIC_LINKING := 0
 AR             := ar
 HAVE_OPENGL    := 0
@@ -338,14 +317,3 @@ clean:
 
 print-%:
 	@echo '$*=$($*)'
-
-.PHONY: rogue xatrix zaero
-
-rogue:
-	$(MAKE) CORE=rogue
-
-xatrix:
-	$(MAKE) CORE=xatrix
-
-zaero:
-	$(MAKE) CORE=zaero
